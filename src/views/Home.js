@@ -1,17 +1,16 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { Button, StyleSheet, Text, View } from "react-native";
 
-import Button from "../components/Button";
 import { COLORS } from "../utils/constants";
 
-const TestView = ({ navigation }) => {
-  console.log("shiet madafaksa");
+const Home = ({ route, navigation }) => {
+  console.log("We Home baby", route.params);
   return (
     <View style={styles.container}>
-      <Text>TestView</Text>
+      <Text>Home</Text>
       <Button
-        title="Home"
-        action={() => navigation.navigate("Home", { sex: "na ex" })}
+        title="TestView"
+        onPress={() => navigation.navigate("TestView")}
       />
     </View>
   );
@@ -27,4 +26,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default TestView;
+export default Home;
