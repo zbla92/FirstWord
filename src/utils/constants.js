@@ -1,6 +1,6 @@
 export const COLORS = {
-  LIGHT: {},
-  DARK: { background: "#32333C", secondary: "#373641" },
+  LIGHT: { text: "#fff" },
+  DARK: { background: "#32333C", secondary: "#373641", text: "#000" },
   GREEN: {
     light: "#6CFD9D",
   },

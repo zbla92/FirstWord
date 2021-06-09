@@ -1,16 +1,16 @@
 import React from "react";
-import { Button, StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 
 import { COLORS } from "../utils/constants";
+import Button from "../components/Button";
 
 const Home = ({ route, navigation }) => {
   console.log("We Home baby", route.params);
   return (
     <View style={styles.container}>
-      <Text>Home</Text>
       <Button
-        title="TestView"
-        onPress={() => navigation.navigate("TestView")}
+        title="Select Category"
+        action={() => navigation.navigate("LanguageSelection")}
       />
     </View>
   );

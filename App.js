@@ -5,8 +5,9 @@ import { StyleSheet, Text, View } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 
-import TestView from "./src/views/TestView";
 import Home from "./src/views/Home";
+import LanguageSelection from "./src/views/LanguageSelection";
+import PlaybackView from "./src/views/PlaybackView";
 
 const Stack = createStackNavigator();
 
@@ -28,7 +29,21 @@ export default function App() {
             },
           }}
         />
-        <Stack.Screen name="TestView" component={TestView} />
+        <Stack.Screen name="LanguageSelection" component={LanguageSelection} />
+        <Stack.Screen
+          name="PlaybackView"
+          component={PlaybackView}
+          options={{
+            title: "Play and Learn",
+            headerStyle: {
+              backgroundColor: "#f4511e",
+            },
+            headerTintColor: "#fff",
+            headerTitleStyle: {
+              fontWeight: "bold",
+            },
+          }}
+        />
       </Stack.Navigator>
       <StatusBar style="auto" />
     </NavigationContainer>
