@@ -5,12 +5,11 @@ import { COLORS } from "../utils/constants";
 import Button from "../components/Button";
 
 const Home = ({ route, navigation }) => {
-  console.log("We Home baby", route.params);
   return (
     <View style={styles.container}>
       <Button
         title="Select Category"
-        action={() => navigation.navigate("LanguageSelection")}
+        action={() => navigation.navigate("CategorySelection")}
       />
     </View>
   );

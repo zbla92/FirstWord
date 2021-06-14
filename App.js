@@ -6,7 +6,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 
 import Home from "./src/views/Home";
-import LanguageSelection from "./src/views/LanguageSelection";
+import CategorySelection from "./src/views/CategorySelection";
 import PlaybackView from "./src/views/PlaybackView";
 
 const Stack = createStackNavigator();
@@ -29,7 +29,7 @@ export default function App() {
             },
           }}
         />
-        <Stack.Screen name="LanguageSelection" component={LanguageSelection} />
+        <Stack.Screen name="CategorySelection" component={CategorySelection} />
         <Stack.Screen
           name="PlaybackView"
           component={PlaybackView}

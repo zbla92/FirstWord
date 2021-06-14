@@ -4,7 +4,7 @@ import { StyleSheet, Text, View } from "react-native";
 import { COLORS } from "../utils/constants";
 import Button from "../components/Button";
 
-const LanguageSelection = ({ navigation }) => {
+const CategorySelection = ({ navigation }) => {
   const handleAction = (category) => {
     navigation.navigate("PlaybackView", { category });
   };
@@ -46,4 +46,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default LanguageSelection;
+export default CategorySelection;

@@ -1,41 +1,37 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { StyleSheet, Text, View, TouchableOpacity, Image } from "react-native";
 import { Audio } from "expo-av";
 
 import { sounds } from "../utils/sounds";
 
-const WordButton = ({ item }) => {
-  const [sound, setSound] = React.useState();
-  console.log(item.item);
-  console.log("wazaa");
+const WordButton = ({ item, soundPlaying, handleSetSoundPlaying }) => {
+  const [sound, setSound] = useState();
 
   // Sound shit
-  async function playSound(src) {
+  async function playSound(src, id) {
     const { sound } = await Audio.Sound.createAsync(src);
+
     setSound(sound);
+    handleSetSoundPlaying(id);
 
     await sound.playAsync();
   }
-  // Sound shit
-
-  const handlePress = (src) => playSound(src);
 
   useEffect(() => {
-    return sound
-      ? () => {
-          console.log("Unloading Sound");
-          sound.unloadAsync();
-        }
-      : undefined;
+    return sound ? () => sound.unloadAsync() : undefined;
   }, [sound]);
 
   return (
     <TouchableOpacity
-      style={style.container}
+      style={[
+        style.container,
+        soundPlaying === item.item.id && style.active,
+        { backgroundColor: item?.item?.color },
+      ]}
       onPress={() => {
-        console.log(item);
-        handlePress(sounds.basic[item.item.src]);
+        if (!soundPlaying) playSound(item?.item?.audio, item.item.id);
       }}
+      disabled={soundPlaying}
     >
       <Image
         style={style.image}
@@ -50,20 +46,23 @@ const WordButton = ({ item }) => {
 const style = StyleSheet.create({
   container: {
     flex: 1,
-    width: 125,
-    height: 125,
+    height: 144,
     margin: 5,
     overflow: "hidden",
+    borderRadius: 5,
   },
   image: {
     height: "100%",
     width: "100%",
     resizeMode: "cover",
-    borderRadius: 5,
   },
   text: {
     color: "#fff",
     fontSize: 30,
+  },
+  active: {
+    borderColor: "orange",
+    borderWidth: 2,
   },
 });
 
